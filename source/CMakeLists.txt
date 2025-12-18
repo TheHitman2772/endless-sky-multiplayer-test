@@ -206,6 +206,25 @@ target_sources(EndlessSkyLib PRIVATE
 	Mortgage.cpp
 	Mortgage.h
 	MouseButton.h
+	network/NetworkClient.cpp
+	network/NetworkClient.h
+	network/NetworkConnection.cpp
+	network/NetworkConnection.h
+	network/NetworkConstants.h
+	network/NetworkManager.cpp
+	network/NetworkManager.h
+	network/NetworkServer.cpp
+	network/NetworkServer.h
+	network/Packet.h
+	network/PacketHandler.cpp
+	network/PacketHandler.h
+	network/PacketReader.cpp
+	network/PacketReader.h
+	network/PacketStructs.h
+	network/PacketValidator.cpp
+	network/PacketValidator.h
+	network/PacketWriter.cpp
+	network/PacketWriter.h
 	NPC.cpp
 	NPC.h
 	NPCAction.cpp
