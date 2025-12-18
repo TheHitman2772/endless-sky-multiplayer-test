@@ -78,5 +78,15 @@ CMakeUserPresets.json
 
 # Test binaries
 test_enet
+test_enet_connection
+test_network_abstraction
 test_packet_serialization
 test_protocol
+test_game_state_separation
+test_player_management
+test_command_pipeline
+
+# Test stubs and build artifacts
+tests/phase2/stubs/
+*.o
+*.gch

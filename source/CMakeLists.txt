@@ -47,6 +47,8 @@ target_sources(EndlessSkyLib PRIVATE
 	CategoryList.h
 	CategoryType.h
 	ClickZone.h
+	ClientState.cpp
+	ClientState.h
 	Collision.cpp
 	Collision.h
 	CollisionSet.cpp
@@ -129,6 +131,8 @@ target_sources(EndlessSkyLib PRIVATE
 	GameData.h
 	GameEvent.cpp
 	GameEvent.h
+	GameState.cpp
+	GameState.h
 	GameLoadingPanel.cpp
 	GameLoadingPanel.h
 	Gamerules.cpp
@@ -206,6 +210,19 @@ target_sources(EndlessSkyLib PRIVATE
 	Mortgage.cpp
 	Mortgage.h
 	MouseButton.h
+	multiplayer/CommandBuffer.cpp
+	multiplayer/CommandBuffer.h
+	multiplayer/CommandValidator.cpp
+	multiplayer/CommandValidator.h
+	multiplayer/NetworkPlayer.cpp
+	multiplayer/NetworkPlayer.h
+	multiplayer/PlayerCommand.h
+	multiplayer/PlayerManager.cpp
+	multiplayer/PlayerManager.h
+	multiplayer/PlayerRegistry.cpp
+	multiplayer/PlayerRegistry.h
+	multiplayer/Predictor.cpp
+	multiplayer/Predictor.h
 	network/NetworkClient.cpp
 	network/NetworkClient.h
 	network/NetworkConnection.cpp
@@ -282,6 +299,8 @@ target_sources(EndlessSkyLib PRIVATE
 	RandomEvent.h
 	Rectangle.cpp
 	Rectangle.h
+	Renderer.cpp
+	Renderer.h
 	RenderBuffer.cpp
 	RenderBuffer.h
 	RouteEdge.cpp

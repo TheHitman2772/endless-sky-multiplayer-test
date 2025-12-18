@@ -166,6 +166,13 @@ public:
 	// Explicitly set this ship's ID.
 	void SetUUID(const EsUuid &id);
 
+	// Get the owner player UUID (for multiplayer ship ownership).
+	const EsUuid &GetOwnerPlayerUUID() const noexcept;
+	// Set the owner player UUID.
+	void SetOwnerPlayerUUID(const EsUuid &playerUuid);
+	// Check if this ship has an owner.
+	bool HasOwner() const noexcept;
+
 	// Get the name of this particular ship.
 	const std::string &GivenName() const;
 	void SetGivenName(const std::string &name);
@@ -619,6 +626,7 @@ private:
 	const Sprite *thumbnail = nullptr;
 	// Characteristics of this particular ship:
 	EsUuid uuid;
+	EsUuid ownerPlayerUUID;  // Multiplayer: UUID of owning player (empty if no owner)
 	std::string givenName;
 	bool canBeCarried = false;
 
