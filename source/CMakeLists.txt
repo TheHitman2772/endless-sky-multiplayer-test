@@ -47,6 +47,8 @@ target_sources(EndlessSkyLib PRIVATE
 	CategoryList.h
 	CategoryType.h
 	ClickZone.h
+	ClientState.cpp
+	ClientState.h
 	Collision.cpp
 	Collision.h
 	CollisionSet.cpp
@@ -129,6 +131,8 @@ target_sources(EndlessSkyLib PRIVATE
 	GameData.h
 	GameEvent.cpp
 	GameEvent.h
+	GameState.cpp
+	GameState.h
 	GameLoadingPanel.cpp
 	GameLoadingPanel.h
 	Gamerules.cpp
@@ -282,6 +286,8 @@ target_sources(EndlessSkyLib PRIVATE
 	RandomEvent.h
 	Rectangle.cpp
 	Rectangle.h
+	Renderer.cpp
+	Renderer.h
 	RenderBuffer.cpp
 	RenderBuffer.h
 	RouteEdge.cpp

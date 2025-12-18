@@ -124,3 +124,6 @@ endif()
 
 # Network tests (ENet integration tests)
 add_subdirectory(network)
+
+# Phase 2 tests (Game State / Presentation Separation)
+add_subdirectory(phase2)

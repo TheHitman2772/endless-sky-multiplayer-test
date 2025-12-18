@@ -78,5 +78,8 @@ CMakeUserPresets.json
 
 # Test binaries
 test_enet
+test_enet_connection
+test_network_abstraction
 test_packet_serialization
 test_protocol
+test_game_state_separation
