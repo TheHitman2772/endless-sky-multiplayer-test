@@ -1199,6 +1199,27 @@ void Ship::SetUUID(const EsUuid &id)
 
 
 
+const EsUuid &Ship::GetOwnerPlayerUUID() const noexcept
+{
+	return ownerPlayerUUID;
+}
+
+
+
+void Ship::SetOwnerPlayerUUID(const EsUuid &playerUuid)
+{
+	ownerPlayerUUID.Clone(playerUuid);
+}
+
+
+
+bool Ship::HasOwner() const noexcept
+{
+	return !ownerPlayerUUID.ToString().empty();
+}
+
+
+
 const string &Ship::GivenName() const
 {
 	return givenName;

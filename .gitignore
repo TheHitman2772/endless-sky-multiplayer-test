@@ -83,3 +83,4 @@ test_network_abstraction
 test_packet_serialization
 test_protocol
 test_game_state_separation
+test_player_management
