@@ -210,12 +210,19 @@ target_sources(EndlessSkyLib PRIVATE
 	Mortgage.cpp
 	Mortgage.h
 	MouseButton.h
+	multiplayer/CommandBuffer.cpp
+	multiplayer/CommandBuffer.h
+	multiplayer/CommandValidator.cpp
+	multiplayer/CommandValidator.h
 	multiplayer/NetworkPlayer.cpp
 	multiplayer/NetworkPlayer.h
+	multiplayer/PlayerCommand.h
 	multiplayer/PlayerManager.cpp
 	multiplayer/PlayerManager.h
 	multiplayer/PlayerRegistry.cpp
 	multiplayer/PlayerRegistry.h
+	multiplayer/Predictor.cpp
+	multiplayer/Predictor.h
 	network/NetworkClient.cpp
 	network/NetworkClient.h
 	network/NetworkConnection.cpp

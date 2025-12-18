@@ -45,15 +45,15 @@ class Visual;
 class GameState {
 public:
 	GameState();
-	~GameState() = default;
+	~GameState();
 
 	// Copy constructor and assignment (for prediction/rollback)
 	GameState(const GameState &other);
 	GameState &operator=(const GameState &other);
 
 	// Move semantics
-	GameState(GameState &&other) = default;
-	GameState &operator=(GameState &&other) = default;
+	GameState(GameState &&other);
+	GameState &operator=(GameState &&other);
 
 	// Simulation step (advance game by one tick at 60 Hz)
 	void Step();

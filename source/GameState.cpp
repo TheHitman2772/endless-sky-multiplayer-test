@@ -34,6 +34,13 @@ GameState::GameState()
 
 
 
+GameState::~GameState()
+{
+	// Default implementation - required to be in .cpp for incomplete types
+}
+
+
+
 // Copy constructor - deep copy for prediction/rollback
 GameState::GameState(const GameState &other)
 	: currentSystem(other.currentSystem), gameTick(other.gameTick)
@@ -98,6 +105,16 @@ GameState &GameState::operator=(const GameState &other)
 	}
 	return *this;
 }
+
+
+
+// Move constructor
+GameState::GameState(GameState &&other) = default;
+
+
+
+// Move assignment operator
+GameState &GameState::operator=(GameState &&other) = default;
 
 
 
