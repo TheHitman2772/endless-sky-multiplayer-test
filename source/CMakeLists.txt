@@ -49,6 +49,14 @@ target_sources(EndlessSkyLib PRIVATE
 	ClickZone.h
 	ClientState.cpp
 	ClientState.h
+	client/ClientReconciliation.cpp
+	client/ClientReconciliation.h
+	client/ConnectionMonitor.cpp
+	client/ConnectionMonitor.h
+	client/EntityInterpolator.cpp
+	client/EntityInterpolator.h
+	client/MultiplayerClient.cpp
+	client/MultiplayerClient.h
 	Collision.cpp
 	Collision.h
 	CollisionSet.cpp
