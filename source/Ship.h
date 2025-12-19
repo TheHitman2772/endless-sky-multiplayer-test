@@ -207,6 +207,12 @@ public:
 
 	void SetPosition(Point position);
 	void SetVelocity(Point velocity);
+	// Phase 3.2: Setters for multiplayer state synchronization
+	void SetFacing(const Angle &facing);
+	void SetShields(double shields);
+	void SetHull(double hull);
+	void SetEnergy(double energy);
+	void SetFuel(double fuel);
 	// When creating a new ship, you must set the following:
 	void Place(Point position = Point(), Point velocity = Point(), Angle angle = Angle(), bool isDeparting = true);
 	void SetSystem(const System *system);

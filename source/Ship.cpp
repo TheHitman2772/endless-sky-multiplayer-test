@@ -1440,6 +1440,42 @@ void Ship::SetVelocity(Point velocity)
 
 
 
+// Phase 3.2: Setters for multiplayer state synchronization
+void Ship::SetFacing(const Angle &facing)
+{
+	this->angle = facing;
+}
+
+
+
+void Ship::SetShields(double shields)
+{
+	this->shields = shields;
+}
+
+
+
+void Ship::SetHull(double hull)
+{
+	this->hull = hull;
+}
+
+
+
+void Ship::SetEnergy(double energy)
+{
+	this->energy = energy;
+}
+
+
+
+void Ship::SetFuel(double fuel)
+{
+	this->fuel = fuel;
+}
+
+
+
 // Instantiate a newly-created ship in-flight.
 void Ship::Place(Point position, Point velocity, Angle angle, bool isDeparting)
 {
