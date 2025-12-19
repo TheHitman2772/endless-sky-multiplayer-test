@@ -88,6 +88,7 @@ test_command_pipeline
 test_server_integration
 test_client_integration
 test_engine_multiplayer
+test_ship_state_sync
 
 # Server executable
 endless-sky-server

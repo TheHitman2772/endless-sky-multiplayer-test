@@ -20,3 +20,24 @@ target_link_libraries(test_engine_multiplayer PRIVATE
 
 # Add to test suite
 add_test(NAME EngineMultiplayerMode COMMAND test_engine_multiplayer)
+
+
+# Phase 3.2: Ship State Synchronization Tests
+
+# Test for ship state synchronization (InterestManager, DeadReckoning, StateSync)
+add_executable(test_ship_state_sync
+	test_ship_state_sync.cpp
+)
+
+target_include_directories(test_ship_state_sync PRIVATE
+	${CMAKE_SOURCE_DIR}/source
+)
+
+# Require full library for Ship and multiplayer components
+target_link_libraries(test_ship_state_sync PRIVATE
+	EndlessSkyLib
+	pthread
+)
+
+# Add to test suite
+add_test(NAME ShipStateSync COMMAND test_ship_state_sync)

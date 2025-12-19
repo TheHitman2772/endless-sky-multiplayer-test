@@ -231,6 +231,12 @@ target_sources(EndlessSkyLib PRIVATE
 	multiplayer/PlayerRegistry.h
 	multiplayer/Predictor.cpp
 	multiplayer/Predictor.h
+	multiplayer/DeadReckoning.cpp
+	multiplayer/DeadReckoning.h
+	multiplayer/InterestManager.cpp
+	multiplayer/InterestManager.h
+	multiplayer/StateSync.cpp
+	multiplayer/StateSync.h
 	network/NetworkClient.cpp
 	network/NetworkClient.h
 	network/NetworkConnection.cpp
