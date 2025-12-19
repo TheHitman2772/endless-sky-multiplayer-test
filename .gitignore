@@ -87,6 +87,7 @@ test_player_management
 test_command_pipeline
 test_server_integration
 test_client_integration
+test_engine_multiplayer
 
 # Server executable
 endless-sky-server

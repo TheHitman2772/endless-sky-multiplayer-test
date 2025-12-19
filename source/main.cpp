@@ -89,6 +89,10 @@ int main(int argc, char *argv[])
 	bool printData = false;
 	bool noTestMute = false;
 	string testToRunName;
+	// Phase 3.1: Multiplayer mode support
+	bool multiplayerMode = false;
+	string serverAddress = "localhost";
+	uint16_t serverPort = 31337;
 
 	// Whether the game has encountered errors while loading.
 	bool hasErrors = false;
@@ -126,6 +130,20 @@ int main(int argc, char *argv[])
 			printTests = true;
 		else if(arg == "--nomute")
 			noTestMute = true;
+		// Phase 3.1: Multiplayer command-line arguments
+		else if(arg == "--multiplayer" || arg == "-m")
+			multiplayerMode = true;
+		else if(arg == "--server" && *++it)
+		{
+			serverAddress = *it;
+			// Parse address:port format
+			size_t colonPos = serverAddress.find(':');
+			if(colonPos != string::npos)
+			{
+				serverPort = static_cast<uint16_t>(stoi(serverAddress.substr(colonPos + 1)));
+				serverAddress = serverAddress.substr(0, colonPos);
+			}
+		}
 	}
 	printData = PrintData::IsPrintDataArgument(argv);
 	Files::Init(argv);
@@ -528,6 +546,8 @@ void PrintHelp()
 	cerr << "    --tests: print table of available tests, then exit." << endl;
 	cerr << "    --test <name>: run given test from resources directory." << endl;
 	cerr << "    --nomute: don't mute the game while running tests." << endl;
+	cerr << "    -m, --multiplayer: start in multiplayer client mode." << endl;
+	cerr << "    --server <address[:port]>: specify server address (default: localhost:31337)." << endl;
 	PrintData::Help();
 	cerr << endl;
 	cerr << "Report bugs to: <https://github.com/endless-sky/endless-sky/issues>" << endl;
