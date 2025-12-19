@@ -242,6 +242,14 @@ target_sources(EndlessSkyLib PRIVATE
 	network/PacketValidator.h
 	network/PacketWriter.cpp
 	network/PacketWriter.h
+	server/Server.cpp
+	server/Server.h
+	server/ServerConfig.cpp
+	server/ServerConfig.h
+	server/ServerLoop.cpp
+	server/ServerLoop.h
+	server/SnapshotManager.cpp
+	server/SnapshotManager.h
 	NPC.cpp
 	NPC.h
 	NPCAction.cpp
@@ -498,3 +506,18 @@ if(WIN32)
 		windows/WinWindow.h
 	)
 endif()
+
+
+# Dedicated Server Executable
+add_executable(endless-sky-server
+	server/ServerMain.cpp
+)
+
+target_link_libraries(endless-sky-server PRIVATE
+	EndlessSkyLib
+)
+
+# Set output directory
+set_target_properties(endless-sky-server PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
+)
