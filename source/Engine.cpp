@@ -34,6 +34,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "text/Format.h"
 #include "FrameTimer.h"
 #include "GameData.h"
+#include "GameState.h"
 #include "Gamerules.h"
 #include "Government.h"
 #include "Hazard.h"
@@ -74,6 +75,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "Weather.h"
 #include "Wormhole.h"
 #include "text/WrappedText.h"
+#include "client/MultiplayerClient.h"
 
 #include <algorithm>
 #include <cmath>
@@ -496,6 +498,10 @@ void Engine::Step(bool isActive)
 {
 	events.swap(eventQueue);
 	eventQueue.clear();
+
+	// Phase 3.1: In multiplayer mode, update the multiplayer client first
+	if(gameMode == Mode::MULTIPLAYER_CLIENT && mpClient)
+		mpClient->Update();
 
 	// Process any outstanding sprites that need to be uploaded to the GPU.
 	queue.ProcessSyncTasks();
@@ -1432,6 +1438,43 @@ void Engine::BreakTargeting(const Government *gov)
 
 
 
+// Phase 3.1: Multiplayer mode support methods
+
+void Engine::SetMode(Mode mode)
+{
+	gameMode = mode;
+}
+
+
+
+Mode Engine::GetMode() const
+{
+	return gameMode;
+}
+
+
+
+void Engine::SetMultiplayerState(GameState *state)
+{
+	multiplayerState = state;
+}
+
+
+
+void Engine::SetMultiplayerClient(MultiplayerClient *client)
+{
+	mpClient = client;
+}
+
+
+
+bool Engine::IsMultiplayer() const
+{
+	return gameMode == Mode::MULTIPLAYER_CLIENT;
+}
+
+
+
 void Engine::EnterSystem()
 {
 	ai.Clean();
@@ -2221,6 +2264,10 @@ void Engine::HandleKeyboardInputs()
 		else
 			Audio::Resume();
 	}
+
+	// Phase 3.1: In multiplayer mode, send commands to the multiplayer client
+	if(gameMode == Mode::MULTIPLAYER_CLIENT && mpClient && activeCommands)
+		mpClient->SendCommand(activeCommands);
 }
 
 

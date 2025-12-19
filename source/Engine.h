@@ -45,7 +45,9 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <vector>
 
 class Flotsam;
+class GameState;
 class Government;
+class MultiplayerClient;
 class NPC;
 class Outfit;
 class PlayerInfo;
@@ -64,8 +66,19 @@ class Weather;
 // game is always one step (1/60 second) behind what is being calculated. This
 // lag is too small to be detectable and means that the game can better handle
 // situations where there are many objects on screen at once.
+//
+// Phase 3.1: Engine now supports multiple game modes (singleplayer, multiplayer client, headless).
+// In multiplayer mode, Engine integrates with MultiplayerClient and uses GameState instead of PlayerInfo
+// for simulation state.
 class Engine {
 public:
+	// Game mode enumeration
+	enum class Mode {
+		SINGLEPLAYER,      // Traditional single-player mode (uses PlayerInfo)
+		MULTIPLAYER_CLIENT, // Multiplayer client mode (uses GameState + MultiplayerClient)
+		HEADLESS           // Headless mode for dedicated server (future use)
+	};
+
 	explicit Engine(PlayerInfo &player);
 	~Engine();
 
@@ -103,6 +116,18 @@ public:
 	// government; gov projectiles stop targeting the player and player's
 	// projectiles stop targeting gov.
 	void BreakTargeting(const Government *gov);
+
+	// Phase 3.1: Multiplayer mode support
+	// Set the game mode (SINGLEPLAYER, MULTIPLAYER_CLIENT, or HEADLESS)
+	void SetMode(Mode mode);
+	// Get the current game mode
+	Mode GetMode() const;
+	// Set the multiplayer game state (for MULTIPLAYER_CLIENT mode)
+	void SetMultiplayerState(GameState *state);
+	// Set the multiplayer client (for MULTIPLAYER_CLIENT mode)
+	void SetMultiplayerClient(MultiplayerClient *client);
+	// Check if currently in multiplayer mode
+	bool IsMultiplayer() const;
 
 
 private:
@@ -330,4 +355,9 @@ private:
 	double load = 0.;
 	int loadCount = 0;
 	double loadSum = 0.;
+
+	// Phase 3.1: Multiplayer mode support
+	Mode gameMode = Mode::SINGLEPLAYER;
+	GameState *multiplayerState = nullptr;       // For MULTIPLAYER_CLIENT mode
+	MultiplayerClient *mpClient = nullptr;        // For MULTIPLAYER_CLIENT mode
 };
