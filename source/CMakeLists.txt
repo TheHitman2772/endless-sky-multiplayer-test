@@ -237,6 +237,10 @@ target_sources(EndlessSkyLib PRIVATE
 	multiplayer/InterestManager.h
 	multiplayer/StateSync.cpp
 	multiplayer/StateSync.h
+	multiplayer/ProjectileSync.cpp
+	multiplayer/ProjectileSync.h
+	multiplayer/CollisionAuthority.cpp
+	multiplayer/CollisionAuthority.h
 	network/NetworkClient.cpp
 	network/NetworkClient.h
 	network/NetworkConnection.cpp
