@@ -85,8 +85,14 @@ test_protocol
 test_game_state_separation
 test_player_management
 test_command_pipeline
+test_server_integration
+test_client_integration
+
+# Server executable
+endless-sky-server
 
 # Test stubs and build artifacts
 tests/phase2/stubs/
+test_config.txt
 *.o
 *.gch
